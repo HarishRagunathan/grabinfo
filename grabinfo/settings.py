@@ -84,7 +84,12 @@ WSGI_APPLICATION = 'grabinfo.wsgi.application'
 
 DATABASES = {
     'default': {
-        # DB Config
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'grab',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',  # Or your PostgreSQL server IP address
+        'PORT': '5432',        # Or your PostgreSQL server port
     }
 }
 
