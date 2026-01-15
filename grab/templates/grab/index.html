@@ -1,0 +1,41 @@
+
+{% extends 'grab/layout/main.html' %}
+{% block title %}
+<title>Grabinfo | Home</title>
+{% endblock title %}
+
+
+{% block content %}
+{% include 'grab/inc/navbar.html' %}
+            <br><br><div class="topic">
+              <a style="background-color: black;color: #fff;">Topics</a>
+              <a href="?" class="{% if not selected_topic_id %}active{% endif %}" >All</a>
+              {% for topic in topics %}
+              <a href="?topic={{ topic.id }}" class="{% if selected_topic_id|stringformat:'s' == topic.id|stringformat:'s' %}active{% endif %}">{{topic.topic_name}}</a>
+              {% endfor %}  
+            </div>
+      
+          <!-- Posts -->
+          <div>
+              {% if posts %}
+                  {% for post in posts %}
+                  <div class="post">
+                    <div class="card-post">
+                        <img src="{{ post.profile.image.url }}" alt="{{ post.profile.user.username }}'s profile picture" class="card-top profile-img">
+                        <div class="card-top post-info">
+                            <p class="username">{{ post.profile.user.username }}</p>
+                            <p class="date">{{ post.updated_at }}</p>
+                        </div>
+                        <button class="card-top follow-btn">Follow</button>
+                    </div>
+                    <p class="topic">Topic: {{ post.topic.topic_name }}</p>
+                    <p class="content">{{ post.content }}</p>
+                    <img src="{{ post.post_image.url }}" alt="Post Image" class="post-img">
+                </div>
+                
+                  {% endfor %}
+              {% else %}
+                  <p style="text-align: center;font-size: 18px;margin-top: 10%;">No posts found for the selected topic.</p>
+              {% endif %}
+          </div>
+{% endblock content %}

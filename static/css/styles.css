@@ -1,0 +1,244 @@
+
+body{
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.topic{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    position: relative;
+    left: 5%;
+    white-space: nowrap; 
+    
+}
+.topic a{
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 5px 20px;
+    margin: 10px 5px;
+}
+.topic::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+ }
+
+
+.post {
+    width: 60%;
+    position: relative;
+    left: 20%;
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 1px solid rgb(36, 36, 36);
+}
+
+.card-post {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures items are spaced evenly */
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.post-info {
+    flex-grow: 1;
+}
+
+.username {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.date {
+    font-size: 14px;
+    color: #888;
+    margin: 5px 0 0 0;
+}
+
+.follow-btn {
+    font-size: 12px;
+    padding: 10px 15px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.follow-btn:hover {
+    background-color: #444;
+}
+
+.topic {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 2% 0;
+    color: #333;
+}
+
+.content {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0 20px 0;
+    margin-left: 40px;
+    color: #444;
+}
+
+.post-img {
+    width: 70%;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+    .post {
+        width: 90%;
+        left: 5%;
+    }
+
+    .post-img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .topic{
+        width: 98%;
+        position: relative;
+        left: 1%;
+    }
+    .topic a{
+        font-size: 14px;
+        margin: 10px 2px;
+        border-radius: 5px;
+    }
+    .post {
+        width: 96%;
+        left: 0;
+        margin: 3% 2%;
+    }
+
+    .card-post {
+        flex-wrap: nowrap; /* Prevent wrapping */
+        overflow-x: auto; /* Allow horizontal scrolling if necessary */
+    }
+
+    .profile-img {
+        margin: 0 0 10px 0;
+    }
+
+    .post-info {
+        margin-bottom: 10px;
+        flex: 1;
+    }
+
+    .follow-btn {
+        margin-left: 20px; /* Space from other elements */
+    }
+    .username {
+       margin-left: 8px;
+    }
+    
+    .date {
+        margin-left: 8px;
+        font-size: 12px;
+    }
+    .content{
+        margin-left: 10px;
+    }
+}
+
+
+/* profile.css */
+.profile {
+    width: 70%;
+    max-width: 1200px;
+    margin: 0 auto 5%;
+    padding: 20px ;
+    padding-left: 15px;
+    border-bottom: 1px solid #333;
+}
+
+.profile-top {
+    display: flex;
+    flex-direction:  column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.profile-card img {
+    width: 200px; /* Smaller size for the profile image */
+    height: 200px; /* Maintain circular shape */
+    border-radius: 50%; /* Circular image */
+    object-fit: cover; /* Cover the container */
+}
+
+.prof {
+    margin: 2% 0; /* Remove margin for better alignment */
+    text-align: center; /* Center text alignment */
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.profile-actions a {
+    padding: 8px 15px;
+    background-color: black;
+    color: #fff;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.profile-actions a:hover {
+    background-color: #333;
+    color: #fff;
+    outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-card img {
+        width: 80px; /* Smaller size for mobile */
+        height: 80px; /* Maintain circular shape */
+    }
+
+    .profile-actions {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .profile-actions a{
+        font-size: 12px;
+    }
+}

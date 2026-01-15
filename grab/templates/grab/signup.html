@@ -1,0 +1,48 @@
+{% extends 'grab/layout/main.html' %}
+
+{% block title %}
+<title>Grabinfo | Sign up</title>
+{% endblock title %}
+
+{% block content %}
+<style>
+    body::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+</style><br>
+<a href="{% url 'home' %}" id="home" style="margin: 10%;">
+    </ion-icon><ion-icon name="home"></ion-icon>
+</a><h3 style="font-size: 24px; text-align: center;color: black;font-weight: bolder;">Sign Up</h3>
+<form method="POST" action="" class="signup">
+        <img src="static/images/formlogo.png" alt="">
+        {% csrf_token %}
+        <div>
+            {{ form.username }} 
+            {% if form.errors.username %}
+            <p style="text-align: center;">{{ form.errors.username|striptags }}</p>
+            {% endif %}
+        </div> 
+        <div>
+            {{ form.email }} 
+            {% if form.errors.email %}
+            <p style="text-align: center;">{{ form.errors.email|striptags }}</p>
+            {% endif %}
+        </div>
+        <div>
+            {{ form.password1 }} 
+            {% if form.errors.password1 %}
+            <p style="text-align: center;">{{ form.errors.password1|striptags }}</p>
+            {% endif %}
+        </div>
+        <div>
+            {{ form.password2 }} 
+            {% if form.errors.password2 %}
+            <p style="text-align: center;">{{ form.errors.password2|striptags }}</p>
+            {% endif %}
+        </div>
+        <button type="submit" class="submit">Sign up</button>
+        <p class="login-p" style="text-align: center; margin-top: 4%;">Already have an Account? <a href="{% url 'login' %}">Log in</a></p>
+    </form>
+{% endblock content %}
+

@@ -1,0 +1,88 @@
+<!-- profiles/templates/profiles/profile.html -->
+{% extends 'grab/layout/main.html' %}
+{% block title %}
+<title>Grabinfo | Edit Profile</title>
+{% endblock title %}
+{% block content %}
+<style>
+  body::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+ .profile_edit {
+  max-width: 600px;
+  margin: auto;
+}
+
+.card {
+  background-color: #fff;
+  border: none; /* Remove border from the card */
+  
+}
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: none; /* Remove border from the image */
+  object-fit: cover;
+}
+
+form {
+  padding: 5px;
+}
+
+h2 {
+  color: #333;
+}
+
+textarea {
+  width: 100%;
+  padding: 5%;
+  resize: vertical;
+  max-height: 150px; /* Limit the height of the textarea */
+  border: 1px solid #333; /* Remove border from textarea */
+  border-radius: 10px;/* Optional: subtle inner shadow for a cleaner look */
+}
+
+@media (max-width: 768px) {
+  .profile-img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+
+</style>
+<a href="{% url 'profile' %}" id="home" style="margin: 5%;">
+  <ion-icon name="arrow-up-outline" style="transform: rotate(-90deg); margin: 3% 0% 0%;font-size: 24px;"></ion-icon>
+</a>
+  <div class="container profile_edit mb-2">
+    <h2 class="text-center mb-2">Edit Profile</h2>
+    <div class="card p-2">
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="text-center mb-3">
+          <img src="{{ request.user.profile.image.url }}" class="img-thumbnail profile-img" alt="Profile Image">
+        </div>
+        <div class="form-group">
+          <label for="username" style="font-weight: bold;">Username</label>
+          <p id="username">{{ request.user.username }}</p>
+        </div>
+        <div class="form-group">
+          <label for="email" style="font-weight: bold;">E-Mail</label>
+          <p id="email">{{ request.user.email }}</p>
+        </div>
+        <div class="form-group">
+          
+          {{ p_form.as_p }}
+        </div>
+        <div class="text-center mt-4">
+          <button type="submit" class="submit" style="width: 100%;background-color: black;color: #fff;border-radius: 10px;padding: 2% 0;border: 0;">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+

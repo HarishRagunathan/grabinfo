@@ -1,0 +1,28 @@
+{% load static %}
+<nav class="navbar fixed-top">
+    <div class="navbar-left">
+        <a href="#" class="logo">
+            <img src="{% static 'images/logo.jpg' %}" alt="Logo">
+        </a>
+    </div>
+    <div class="navbar-center">
+        <a href="{% url 'home' %}" class="nav-icon">
+            <ion-icon name="home"></ion-icon>
+        </a>
+        <a href="followers.html" class="nav-icon">
+            <ion-icon name="people"></ion-icon>
+        </a>
+        <a href="{% url 'searchs' %}" class="nav-icon">
+            <ion-icon name="search"></ion-icon>
+        </a>
+    </div>
+    <div class="navbar-right">
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'profile' %}">
+            <img src="{{ request.user.profile.image.url }}" alt="Profile Image" class="profile-image">
+        </a>
+        {% else %}
+        <a href="{% url 'login' %}" class="join-us" style="color: #fff;">JoinUs</a>
+        {% endif %}
+    </div>
+</nav>

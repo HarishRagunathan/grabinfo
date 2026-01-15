@@ -1,0 +1,46 @@
+.signup{
+    width: 36%;
+    margin: 1% 32% 10%;
+}
+.signup img{
+    width: 30%;
+    margin:  0 35%;
+    align-content: center;
+}
+.signup input, .signup button{
+    width: 90%;
+    margin: 2% 5%;
+    padding: 2%;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+.signup input:focus{
+    background-color: white;
+    outline: none;
+}
+.signup button{
+    background-color: #000;
+    color: #fff;
+}
+.signu p{
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+.login-p{
+    font-size: 18px;
+}
+#home{
+    color: #000;
+    font-size: 20px;
+}
+@media screen and (max-width:1000px){
+    .signup{
+        width: 96%;
+        margin: 15% 2% 10%;
+    }
+    .signup input{
+        margin: 3% 5%;
+        padding: 2% 3%;
+    }
+}

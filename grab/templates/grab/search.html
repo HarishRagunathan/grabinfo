@@ -1,0 +1,26 @@
+{% extends 'grab/layout/main.html' %}
+{% block title %}
+<title>Grabinfo | Search profile</title>
+{% endblock title %}
+{% block content %}
+{% include 'grab/inc/navbar.html' %}
+<br><br><br>
+<form method="GET" action="{% url 'searchs' %}" class="searchform">
+   <div class="form">
+    <input type="text" name="profile" placeholder="Search Profiles">
+    <button type="submit"><ion-icon name="search"></ion-icon></button>
+   </div>
+</form>
+
+<div class="searchprofile">
+    {% for profile in result %}
+    <div class="result">
+        <img src="{{ profile.image.url }}" alt="">
+        <p>{{ profile.user.username }}</p>
+        <button><a href="{% url 'profile_view' profile.id %}" style="text-decoration: none;color: #fff;">view <ion-icon name="arrow-up-outline" style="transform: rotate(45deg); position: relative;top: 2px;"></ion-icon></a></button>
+    </div>
+{% endfor %}
+</div>
+
+
+{% endblock %}

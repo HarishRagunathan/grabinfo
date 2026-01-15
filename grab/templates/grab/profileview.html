@@ -1,0 +1,45 @@
+{% extends 'grab/layout/main.html' %}
+{% block title %}
+<title>Grabinfo | Users profile</title>
+{% endblock title %}
+
+
+{% block content %}
+{% include 'grab/inc/navbar.html' %}
+
+
+<br><br><br><br>
+<div class="profile">
+    <div class="profile-top">
+        <div class="profile-card">
+            <img src="{{profile.image.url}}" alt="Profile Image">
+        </div>
+        <div class="profile-card">
+            <h4>{{ profile.user.username }}</h4>
+            <p>{{ profile.bio }}</p>
+        </div>
+    </div>
+    <div class="profile-actions">
+        <a href="#" class="btn">Follow</a>
+    </div>
+</div>
+<p style="text-align: center;margin: 5%; color: black;font-weight: bold;font-size: 20px;">{{profile.user.username}}'s Recent Posts</p>
+{% if posts %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="card-post">
+                <img src="{{ post.profile.image.url }}" alt="{{ post.profile.user.username }}'s profile picture" class="card-top profile-img">
+                <div class="card-top post-info">
+                    <p class="username">{{ post.profile.user.username }}</p>
+                    <p class="date">{{ post.updated_at }}</p>
+                </div>
+            </div>
+            <p class="topic">Topic: {{ post.topic.topic_name }}</p>
+            <p class="content">{{ post.content }}</p>
+            <img src="{{ post.post_image.url }}" alt="Post Image" class="post-img">
+        </div>
+    {% endfor %}
+{% else %}
+    <p style="text-align: center;">No Post Available</p>
+{% endif %}
+{% endblock content %}
